@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "name": "Whisky Tullamore Dew",
+        "type": "Whisky Irlandés",
+        "price": 120,
+        "image": "liquidImg_test.png"
+    },
+    {
+        "id": 2,
+        "name": "Ron Diplomático",
+        "type": "Ron Venezolano",
+        "price": 90,
+        "image": "liquidImg_test.png"
+    },
+    {
+        "id": 3,
+        "name": "Tequila Don Julio",
+        "type": "Tequila Mexicano",
+        "price": 150,
+        "image": "liquidImg_test.png"
+    },
+    {
+        "id": 4,
+        "name": "Anisado",
+        "type": "Destilado",
+        "price": 150,
+        "image": "liquidImg_test.png"
+    }
+]

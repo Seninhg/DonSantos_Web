@@ -1,44 +1,37 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import LiquorCard from './LiquorCard';
-import liquidImg from '../../assets/liquidImg_test.png'; // 👈 Importamos la imagen local
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-const products = [
-  {
-    id: 1,
-    name: 'Whisky Tullamore Dew',
-    type: 'Whisky Irlandés',
-    price: 120,
-    image: liquidImg,
-  },
-  {
-    id: 2,
-    name: 'Ron Diplomático',
-    type: 'Ron Venezolano',
-    price: 90,
-    image: liquidImg,
-  },
-  {
-    id: 3,
-    name: 'Tequila Don Julio',
-    type: 'Tequila Mexicano',
-    price: 150,
-    image: liquidImg,
-  },
-  {
-    id: 4,
-    name: 'Anisado',
-    type: 'Destilado',
-    price: 150,
-    image: liquidImg,
-  },
-];
 
 const ProductsGrid: React.FC = () => {
   const { scrollYProgress } = useScroll();
 
   const opacity = useTransform(scrollYProgress, [0.08, 0.20], [0, 1]);
   const translateX = useTransform(scrollYProgress, [0.08, 0.20], [-150, 0]);
+
+  //para la carga de licores
+  interface Product {
+    id: number;
+    name: string;
+    price: number;
+    image: string;
+  }
+
+  const [products, setProducts] = useState<Product[]>([]);
+
+
+  useEffect(() => {
+    fetch("/liquors.json")
+      .then((response) => response.json())
+      .then((data) => {
+        setProducts(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
+      });
+  }, [])
+
+
 
   return (
     <section id="productos" className="max-w-7xl mx-auto py-20 px-4">
@@ -73,7 +66,7 @@ const ProductsGrid: React.FC = () => {
             <LiquorCard
               name={product.name}
               price={product.price}
-              image={product.image}
+              image={"/images/licores/" + product.image}
             />
           </motion.div>
         ))}

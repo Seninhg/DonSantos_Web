@@ -1,0 +1,17 @@
+[
+    {
+      "id": 1,
+      "name": "Don Santos - Principal",
+      "address": "Jr. San Francisco S/n, a media cuadra de la plaza, Yuracyacu, Peru",
+      "number": "985 064 528",
+      "imageUrl": "store1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Supermercado ALTOMAYO",
+      "address": "Jr. Piura 512 - 528 / Nueva Cajamarca",
+      "number": "967 303 200",
+      "imageUrl": "altomayosuper.jpg"
+    }
+  ]
+  
