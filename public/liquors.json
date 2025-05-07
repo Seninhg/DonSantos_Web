@@ -1,30 +1,62 @@
 [
     {
         "id": 1,
-        "name": "Whisky Tullamore Dew",
-        "type": "Whisky Irlandés",
-        "price": 120,
-        "image": "liquidImg_test.png"
+        "name": "Anisado 250 (Chata)",
+        "ml": 250,
+        "precios": {
+            "mayorista": 12,
+            "minorista": 15
+        },
+        "tipo": "anisado",
+        "mostrarEnLanding": true,
+        "image": "AnisadoChata_250ml.jpg"
     },
     {
         "id": 2,
-        "name": "Ron Diplomático",
-        "type": "Ron Venezolano",
-        "price": 90,
-        "image": "liquidImg_test.png"
+        "name": "Anisado Grande (500)",
+        "ml": 500,
+        "precios": {
+            "mayorista": 20,
+            "minorista": 25
+        },
+        "tipo": "anisado",
+        "mostrarEnLanding": true,
+        "image": "Anisado_500ml.jpg"
     },
     {
         "id": 3,
-        "name": "Tequila Don Julio",
-        "type": "Tequila Mexicano",
-        "price": 150,
-        "image": "liquidImg_test.png"
+        "name": "Destilado de Naranja",
+        "ml": 750,
+        "precios": {
+            "mayorista": 25,
+            "minorista": 30
+        },
+        "tipo": "destilado",
+        "mostrarEnLanding": false,
+        "image": "DetiladoNaranja_750ml.jpg"
     },
     {
         "id": 4,
-        "name": "Anisado",
-        "type": "Destilado",
-        "price": 150,
-        "image": "liquidImg_test.png"
+        "name": "Destilado de Maracuyá",
+        "ml": 500,
+        "precios": {
+            "mayorista": 20,
+            "minorista": 25
+        },
+        "tipo": "destilado",
+        "mostrarEnLanding": false,
+        "image": "default_licor.png"
+    },
+    {
+        "id": 5,
+        "name": "Cóctel Cacao (500ml)",
+        "ml": null,
+        "precios": {
+            "mayorista": 20,
+            "minorista": 25
+        },
+        "tipo": "cóctel",
+        "mostrarEnLanding": true,
+        "image": "CoctelCacao_500ml.jpg"
     }
 ]

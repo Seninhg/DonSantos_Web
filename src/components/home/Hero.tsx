@@ -1,5 +1,5 @@
 import React from 'react';
-import heroImage from '../assets/banner_test.jpg';
+import heroImage from '../../assets/banner_test2.jpg';
 import { motion, useScroll, useTransform } from "motion/react";
 
 const Hero: React.FC = () => {
@@ -23,6 +23,8 @@ const Hero: React.FC = () => {
           backgroundImage: `url(${heroImage})`,
           y: backgroundY,
           filter: "blur(1px)", // Desenfoque del fondo
+          backgroundSize: "80%",
+          backgroundPosition: "center",
         }}
       >
         <div className="absolute inset-0 bg-black/60"></div> {/* Capa oscura */}

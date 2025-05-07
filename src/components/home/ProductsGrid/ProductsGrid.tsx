@@ -1,19 +1,25 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import LiquorCard from './LiquorCard';
+import VerMasCard from './VerMasCard';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 
 const ProductsGrid: React.FC = () => {
   const { scrollYProgress } = useScroll();
 
-  const opacity = useTransform(scrollYProgress, [0.08, 0.20], [0, 1]);
-  const translateX = useTransform(scrollYProgress, [0.08, 0.20], [-150, 0]);
+  const opacity = useTransform(scrollYProgress, [0.08, 0.19], [0, 1]);
+  const translateX = useTransform(scrollYProgress, [0.08, 0.19], [-150, 0]);
 
   //para la carga de licores
   interface Product {
     id: number;
     name: string;
-    price: number;
+    ml: number;
+    precios: {
+      mayorista: number;
+      minorista: number;
+    }
+    mostrarEnLanding: boolean;
     image: string;
   }
 
@@ -31,7 +37,7 @@ const ProductsGrid: React.FC = () => {
       });
   }, [])
 
-
+  const productosDestacados = products.filter(p => p.mostrarEnLanding);
 
   return (
     <section id="productos" className="max-w-7xl mx-auto py-20 px-4">
@@ -52,7 +58,7 @@ const ProductsGrid: React.FC = () => {
       </motion.h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-        {products.map((product, index) => (
+        {productosDestacados.map((product, index) => (
           <motion.div
             key={product.id}
             initial={{ opacity: 0, y: 50 }}
@@ -60,17 +66,31 @@ const ProductsGrid: React.FC = () => {
             viewport={{ once: true }}
             transition={{
               duration: 0.8,
-              delay: index * 0.2, // 👈 Delay progresivo por tarjeta
+              delay: index * 0.2,
             }}
           >
             <LiquorCard
               name={product.name}
-              price={product.price}
-              image={"/images/licores/" + product.image}
+              price={product.precios.minorista}
+              image={`/images/licores/${product.image}`}
             />
           </motion.div>
         ))}
+        <motion.div
+          key="ver-mas"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.8,
+            delay: productosDestacados.length * 0.2,
+          }}
+        >
+          <VerMasCard />
+        </motion.div>
+
       </div>
+
 
     </section>
   );

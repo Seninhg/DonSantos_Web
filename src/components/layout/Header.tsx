@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'; // Importar Link
 
 const Header: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -25,12 +26,14 @@ const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
         {/* Logo */}
         <div className="text-2xl font-bold tracking-wide">
-          <a href="#home">Destilería Don Santos</a>
+          <Link to="/">Destilería Don Santos</Link> {/* Cambiado a Link */}
         </div>
 
         {/* Navigation */}
         <nav className="hidden md:flex gap-8 text-lg">
           <a href="#productos" className="hover:text-amber-500 transition">Productos</a>
+          {/* Los siguientes enlaces asumen que tienes secciones en la Home page o rutas específicas */}
+          {/* Si son secciones en la Home, considera usar NavLink y lógica para scroll o refactorizar a rutas separadas si es necesario */}
           <a href="#nosotros" className="hover:text-amber-500 transition">Nosotros</a>
           <a href="#contacto" className="hover:text-amber-500 transition">Contacto</a>
         </nav>
